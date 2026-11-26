@@ -1,0 +1,13 @@
+<!-- templates/registration/registro.html -->
+{% extends "_base.html" %}
+
+{% block titulo %}Registrarse{% endblock titulo %}
+
+{% block contenido %}
+  <h1>Registrarse</h1>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Crear cuenta</button>
+  </form>
+{% endblock contenido %}

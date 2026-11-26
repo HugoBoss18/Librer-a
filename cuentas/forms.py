@@ -1,13 +1,15 @@
-from django.contrib.auth import get_user_model  # type: ignore[reportMissingModuleSource]
-from django.contrib.auth.forms import UserCreationForm, UserChangeForm  # type: ignore[reportMissingModuleSource]
+# cuentas/forms.py
+from django.contrib.auth import get_user_model
+from django.contrib.auth.forms import UserChangeForm, UserCreationForm
+
 
 class FormularioCreacionUsuario(UserCreationForm):
     class Meta:
         model = get_user_model()
-        fields = ('username', 'email')
+        fields = ("email", "username", "fecha_nacimiento")
+
 
 class FormularioCambioUsuario(UserChangeForm):
     class Meta:
-        model=get_user_model()
-        fields = ('username', 'email')
-
+        model = get_user_model()
+        fields = ("email", "username", "fecha_nacimiento")

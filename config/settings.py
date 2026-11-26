@@ -32,9 +32,9 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     "django.contrib.admin",
-    "django.contrib.auth",
-    "django.contrib.contenttypes",
-    "django.contrib.sessions",
+    "django.contrib.auth",#usuarios, grupos y vistas de autenticación
+    "django.contrib.contenttypes", #tipos de contenido, usado por permisos
+    "django.contrib.sessions",#sesiones guardadas en la base de datos
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "cuentas",
@@ -43,10 +43,10 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
-    "django.contrib.sessions.middleware.SessionMiddleware",
+    "django.contrib.sessions.middleware.SessionMiddleware", #lee la cokie de sesión y la asocia con la sesión del usuario
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
-    "django.contrib.auth.middleware.AuthenticationMiddleware",
+    "django.contrib.auth.middleware.AuthenticationMiddleware", #agrega request.user a cada request, para saber si el usuario está autenticado
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
@@ -127,3 +127,5 @@ STATIC_URL = "static/"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 AUTH_USER_MODEL = "cuentas.UsuarioPersonalizado"
+LOGIN_REDIRECT_URL = "inicio"
+LOGOUT_REDIRECT_URL = "inicio"

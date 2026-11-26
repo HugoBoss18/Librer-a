@@ -22,4 +22,6 @@ from django.urls import path, include  # nuevo
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", include("paginas.urls")),  # nuevo
+    path("cuentas/", include("cuentas.urls")),  # nuevo
+    path("cuentas/", include("django.contrib.auth.urls")),  # nuevo
 ]
